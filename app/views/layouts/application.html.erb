@@ -13,6 +13,7 @@
       <div class="container">
         <div id="logo" class="navbar-brand"><%= link_to "SKILLMARKET", root_path %></div>
         <nav class="collapse navbar-collapse navbar-ex1-collapse">
+
         	<% if user_signed_in? -%>
 						<ul class="nav navbar-nav navbar-right">
 							<li><%= link_to 'Add a worker', new_worker_path %></li>

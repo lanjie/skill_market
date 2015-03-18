@@ -1,3 +1,4 @@
 <p><%= skill.name %></p>
-
+<% if @worker.user == current_user %>
 <%= link_to "Delete", worker_skill_path(@worker, skill.id), method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>
