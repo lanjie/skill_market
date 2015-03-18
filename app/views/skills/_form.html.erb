@@ -1,0 +1,4 @@
+<%= form_for([@worker, @worker.skills.build]) do |f| %>
+	<%= f.text_field :name, placeholder: "Add a skill" %>
+	<%= f.submit %>
+<% end %>

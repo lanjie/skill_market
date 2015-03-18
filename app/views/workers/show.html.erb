@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @worker.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @worker.description %>
+</p>
+
+<p>
+	<strong>Skills:</strong>
+	<%= render @worker.skills %>
+	<div>
+		<%= render "skills/form"%>
+	</div>
+</p>
+
+
+
+
+<%= link_to 'Edit', edit_worker_path(@worker) %> |
+<%= link_to 'Back', workers_path %>
