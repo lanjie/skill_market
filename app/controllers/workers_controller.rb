@@ -1,5 +1,6 @@
 class WorkersController < ApplicationController
   before_action :set_worker, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, except: [:index, :show]
 
   # GET /workers
   # GET /workers.json
@@ -14,7 +15,7 @@ class WorkersController < ApplicationController
 
   # GET /workers/new
   def new
-    @worker = Worker.new
+    @worker = current_user.workers.build
   end
 
   # GET /workers/1/edit
@@ -24,7 +25,7 @@ class WorkersController < ApplicationController
   # POST /workers
   # POST /workers.json
   def create
-    @worker = Worker.new(worker_params)
+    @worker = current_user.workers.build(worker_params)
 
     respond_to do |format|
       if @worker.save

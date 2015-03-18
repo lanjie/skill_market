@@ -17,8 +17,10 @@
         <td><%= worker.name %></td>
         <td><%= worker.description %></td>
         <td><%= link_to 'Show', worker %></td>
+        <% if worker.user == current_user %>
         <td><%= link_to 'Edit', edit_worker_path(worker) %></td>
         <td><%= link_to 'Destroy', worker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
