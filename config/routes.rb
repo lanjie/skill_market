@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   resources :workers do 
     resources :skills
+      collection do 
+        get 'search'
+      end
   end
+
+
 
   root "workers#index"
 

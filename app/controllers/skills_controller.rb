@@ -1,6 +1,17 @@
 class SkillsController < ApplicationController
 
 	before_action :set_worker
+
+
+
+	def search
+
+		if params[:search].present?
+			@skills = Skill.reindex.search(params[:search])
+		else
+			@skills = Skill.all
+		end
+	end
 	
 	def create		
 		@skill = @worker.skills.create(skill_param)

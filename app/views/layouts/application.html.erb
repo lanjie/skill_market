@@ -14,18 +14,26 @@
         <div id="logo" class="navbar-brand"><%= link_to "SKILLMARKET", root_path %></div>
         <nav class="collapse navbar-collapse navbar-ex1-collapse">
 
-        	<% if user_signed_in? -%>
-						<ul class="nav navbar-nav navbar-right">
-							<li><%= link_to 'Add a worker', new_worker_path %></li>
-							<li><%= link_to 'Account', edit_user_registration_path %></li>
-							<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-						</ul>
+        	
+				<ul class="nav navbar-nav navbar-right">
+					<% if user_signed_in? -%>
+					<li><%= link_to 'Add a worker', new_worker_path %></li>
+					<li><%= link_to 'Account', edit_user_registration_path %></li>
+					<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+				</ul>
 					<% else -%>
-						<ul class="nav navbar-nav pull-right">
-							<li><%= link_to 'Sign up', new_user_registration_path %></li>
-							<li><%= link_to 'Sign in', new_user_session_path %></li>
-						</ul>
+				<ul class="nav navbar-nav pull-right">
+					<li><%= link_to 'Sign up', new_user_registration_path %></li>
+					<li><%= link_to 'Sign in', new_user_session_path %></li>
 					<% end -%>
+				</ul>
+				<%= form_tag search_workers_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+        		<p>
+         		 <%= text_field_tag :search, params[:search], class: "form-control" %>
+         		 <%= submit_tag "Search", name: "A", class: "btn btn-default" %>
+        		</p>
+     			 <% end %>
+			
         </nav>
       </div>
     </div>

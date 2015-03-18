@@ -2,6 +2,14 @@ class WorkersController < ApplicationController
   before_action :set_worker, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index, :show]
 
+  def search
+    if params[:search].present?
+      @workers = Worker.search(params[:search])
+    else
+      @workers = Worker.all
+    end
+  end
+
   # GET /workers
   # GET /workers.json
   def index
