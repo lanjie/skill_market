@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :workers do 
     resources :skills
   end
